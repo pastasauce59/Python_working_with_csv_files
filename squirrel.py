@@ -12,9 +12,12 @@ squirrel_colors.pop(0)
 # print(squirrel_colors)
 
 squirrel_fur_color_dict = {}
+squirrel_fur_color_dict['Fur Color'] = []
+squirrel_fur_color_dict['Count'] = []
 for color in squirrel_colors:
-    squirrel_fur_color_dict[color] = (data['Primary Fur Color'] == color).sum()
-print(squirrel_fur_color_dict)
+    squirrel_fur_color_dict['Fur Color'].append(color)
+    squirrel_fur_color_dict['Count'].append((data['Primary Fur Color'] == color).sum())
+# print(squirrel_fur_color_dict)
 
-# squirrel_count_data = pandas.DataFrame(squirrel_fur_color_dict)
-# squirrel_count_data.to_csv('squirrel_count.csv')
+squirrel_count_data = pandas.DataFrame(squirrel_fur_color_dict)
+squirrel_count_data.to_csv('squirrel_count.csv')
